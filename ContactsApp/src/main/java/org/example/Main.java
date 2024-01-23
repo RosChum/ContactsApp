@@ -13,7 +13,5 @@ public class Main {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         context.getBean(ConsoleService.class).consoleHandler();
 
-
-
     }
 }
