@@ -15,13 +15,7 @@ dependencies {
 
     implementation("org.springframework:spring-context:6.0.8")
     implementation("javax.annotation:javax.annotation-api:1.3.2")
-    implementation("org.yaml:snakeyaml:1.30")
-
-//    compileOnly("org.projectlombok:lombok:1.18.30")
-//    annotationProcessor("org.projectlombok:lombok:1.18.30")
-
-    testCompileOnly("org.projectlombok:lombok:1.18.30")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.30")
+    implementation("org.yaml:snakeyaml:2.0")
 
 }
 
@@ -29,21 +23,5 @@ tasks.test {
     useJUnitPlatform()
 }
 
-//allprojects {
-//    tasks.withType<JavaCompile> {
-//        options.encoding = Charsets.UTF_8.name()
-//    }
-//
-//    tasks.withType<Test> {
-//        systemProperty("file.encoding", Charsets.UTF_8.name())
-//    }
-//
-//    tasks.withType<Javadoc> {
-//        options.encoding = Charsets.UTF_8.name()
-//    }
-//
-//    tasks.withType<ProcessResources> {
-//        filteringCharset = Charsets.UTF_8.name()
-//    }
-//}
+
 

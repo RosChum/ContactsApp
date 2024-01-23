@@ -1,7 +1,6 @@
 package org.example.appHandler;
 
 import org.example.model.Contact;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
@@ -19,7 +18,7 @@ public class ConsoleService {
 
         System.out.println("Введите одну из следующих команд команду: \n" +
                 "показать;  \n" +
-                "сохранить, пример ввода: \"иванов иван иванович; +890999999; someEmail@example.example\";" + "\n" +
+                "сохранить, пример ввода: \"Иванов Иван Иванович; +890999999; someEmail@example.example\";" + "\n" +
                 "удалить, пример ввода \"someEmail@example.example\";" + "\n" +
                 "выход");
 

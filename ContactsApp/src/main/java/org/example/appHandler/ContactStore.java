@@ -3,8 +3,9 @@ package org.example.appHandler;
 import org.example.model.Contact;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,10 +24,7 @@ public class ContactStore {
         if (!contactList.containsKey(contact.getEmail())) {
             contactList.put(contact.getEmail().trim(), contact);
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./src/main/resources/default-contacts.txt", true))) {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(contact.getFullName()).append(";")
-                        .append(contact.getPhoneNumber()).append(";").append(contact.getEmail()).append("\n");
-                bufferedWriter.write(stringBuilder.toString(), 0, stringBuilder.length());
+                bufferedWriter.write(Mapper.convertToString(contact), 0, Mapper.convertToString(contact).length());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -44,16 +42,7 @@ public class ContactStore {
         return new ArrayList<>(contactList.values());
     }
 
-    @PostConstruct
-    public void initContactList() {
-
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("./src/main/resources/default-contacts.txt"))) {
-
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void initContacts(HashMap<String, Contact> contacts) {
+        contactList.putAll(contacts);
     }
-
-
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="ISO-8859-1">
+    <file url="file://$PROJECT_DIR$/build.gradle.kts" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/Main.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/appHandler/ConsoleService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/default-contacts.txt" charset="windows-1251" />
+    <file url="PROJECT" charset="windows-1251" />
+  </component>
+</project>
