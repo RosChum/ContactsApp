@@ -26,9 +26,14 @@ public class InitContactList {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(resourcePath))) {
 
             HashMap<String, Contact> contactMap = new HashMap<>();
-            while (bufferedReader.ready()) {
-                Contact contact = Mapper.convertToEntity(bufferedReader.readLine());
-                contactMap.put(contact.getEmail(), contact);
+            String text;
+            while ((text = bufferedReader.readLine()) != null) {
+                if (!text.isEmpty()) {
+                    Contact contact = Mapper.convertToEntity(text);
+                    contactMap.put(contact.getEmail(), contact);
+                } else {
+                    break;
+                }
             }
             contactStore.initContacts(contactMap);
 

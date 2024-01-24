@@ -4,6 +4,9 @@
     <file url="file://$PROJECT_DIR$/build.gradle.kts" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/Main.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/org/example/appHandler/ConsoleService.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/appHandler/ContactStore.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/appHandler/InitContactList.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/example/appHandler/Mapper.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/default-contacts.txt" charset="windows-1251" />
     <file url="PROJECT" charset="windows-1251" />
   </component>

@@ -24,7 +24,7 @@ public class ContactStore {
         this.contactList = new HashMap<>();
     }
 
-    public boolean addContact(Contact contact) {
+    public void addContact(Contact contact) {
         if (!contactList.containsKey(contact.getEmail())) {
             contactList.put(contact.getEmail().trim(), contact);
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(resourcePath, true))) {
@@ -32,14 +32,19 @@ public class ContactStore {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            return true;
+            System.out.println("Контакт сохранен");
         } else {
-            return false;
+            System.out.println("Контакт с таким email уже существует");
         }
     }
 
     public void deleteContact(String email) {
-        contactList.remove(email);
+        if (contactList.containsKey(email)) {
+            contactList.remove(email);
+            System.out.println("Контакт удален");
+        } else {
+            System.out.println("Контакт с таким email не найден");
+        }
     }
 
     public List<Contact> getAllContacts() {

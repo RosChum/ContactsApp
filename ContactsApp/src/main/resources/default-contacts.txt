@@ -1,3 +1,8 @@
-Иванов Иван Иванович; +890999999; someEmail@example.example
-Петров Иван Иванович; +890999999; mail@example.example
-Иван Андрей Иванович;+890999999;someEmail@example.example 
+Иванов Иван Иванович;+890999999;someEmail@example.example
+Иван Петров Иванович;+890999999;mail@example.example
+Иванов Андрей Иванович;+890999999;Email@example.example
+Иванов Jon Иванович;+890999999;so12Email@example.example
+Иванов Artem 996;+89051561699;some516156l@exle.exale
+Иванов Artem 996;+89051561699;some516156l@exle.exal
+Ива Гога;+890999999;ail@ee.ple
+Иванов Иван Иванович;+890999999;someEmail@example.example

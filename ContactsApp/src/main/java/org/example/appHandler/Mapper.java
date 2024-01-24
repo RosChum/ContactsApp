@@ -15,8 +15,8 @@ public class Mapper {
 
     public static String convertToString(Contact contact) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(contact.getFullName()).append(";")
-                .append(contact.getPhoneNumber()).append(";").append(contact.getEmail()).append("\n");
+        stringBuilder.append(contact.getFullName().trim()).append(";")
+                .append(contact.getPhoneNumber().trim()).append(";").append(contact.getEmail().trim()).append("\n");
         return stringBuilder.toString();
     }
 }

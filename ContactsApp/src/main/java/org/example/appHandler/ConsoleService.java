@@ -1,6 +1,5 @@
 package org.example.appHandler;
 
-import org.example.model.Contact;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
@@ -15,42 +14,35 @@ public class ConsoleService {
     }
 
     public void consoleHandler() {
+        String description = "Введите одну из следующих команд команду: \n" +
+                "1 - \"показать\" для вывода списка контактов;  \n" +
+                "2 - для сохранения контактов введите ФИО, телефон, email через знак \";\", пример ввода: " +
+                "\"Иванов Иван Иванович; +890999999; someEmail@example.example\";" + "\n" +
+                "3 - для удаления контакта введите email, пример ввода \"someEmail@example.example\";" + "\n" +
+                "4 - для выхода введите \"выход\".";
 
-        System.out.println("Введите одну из следующих команд команду: \n" +
-                "показать;  \n" +
-                "сохранить, пример ввода: \"Иванов Иван Иванович; +890999999; someEmail@example.example\";" + "\n" +
-                "удалить, пример ввода \"someEmail@example.example\";" + "\n" +
-                "выход");
+        System.out.println(description);
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
             String text = scanner.nextLine();
-            System.out.println("consoleHandler " + text);
-
-            if (text.equals("показать")) {
-                System.out.println("consoleHandler показать " + text + " " + contactStore.getAllContacts().size());
-                contactStore.getAllContacts().forEach(System.out::println);
-            }
-
-            if (text.matches(".+\\s.+;.+@.+\\..+")) {
-                System.out.println("consoleHandler add " + text);
-                String[] contact = text.split(";");
-                Contact contact1 = new Contact();
-                contact1.setFullName(contact[0]);
-                contact1.setPhoneNumber(contact[1]);
-                contact1.setEmail(contact[2]);
-                contactStore.addContact(contact1);
-            }
-
-
-            if (text.matches("[A-Za-z]+@.+\\..+")) {
-                System.out.println("consoleHandler delete " + text);
+            if (text.equalsIgnoreCase("показать")) {
+                if (!contactStore.getAllContacts().isEmpty()) {
+                    contactStore.getAllContacts().forEach(System.out::println);
+                } else {
+                    System.out.println("Список контактов пуст");
+                }
+            } else if (text.matches(".+;\\s?\\+\\d+;\\s?[A-Za-z0-9]+@.+\\..+")) {
+                contactStore.addContact(Mapper.convertToEntity(text));
+            } else if (text.matches("[A-Za-z0-9]+@[A-Za-z0-9]+\\.[A-Za-z]+")) {
                 contactStore.deleteContact(text);
+            } else if (text.equalsIgnoreCase("выход")) {
+                break;
+            } else {
+                System.out.println("Введена неверная команда! \n" + description);
             }
 
-            if (text.equals("выход")) {
-                break;
-            }
+
         }
     }
 }
